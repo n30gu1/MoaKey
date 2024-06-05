@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B21B93A92C103D3C0024E70A /* Automata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B93A82C103D3C0024E70A /* Automata.swift */; };
+		B21B93AB2C1041700024E70A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B93AA2C1041700024E70A /* ContentView.swift */; };
+		B21B93AD2C1073F60024E70A /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B93AC2C1073F60024E70A /* WelcomeScreen.swift */; };
+		B21B93AF2C1074CC0024E70A /* AllowFullAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B93AE2C1074CC0024E70A /* AllowFullAccessView.swift */; };
+		B21B93B22C1075400024E70A /* HowToUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B93B12C1075400024E70A /* HowToUseView.swift */; };
+		B21B93B42C1077C40024E70A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B21B93B32C1077C40024E70A /* Localizable.xcstrings */; };
+		B21B93B82C10861B0024E70A /* UIKitLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B93B72C10861A0024E70A /* UIKitLabel.swift */; };
 		B238601A2C0F15AA00F84480 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23860192C0F15AA00F84480 /* AppDelegate.swift */; };
 		B238601C2C0F15AA00F84480 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B238601B2C0F15AA00F84480 /* SceneDelegate.swift */; };
-		B238601E2C0F15AA00F84480 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B238601D2C0F15AA00F84480 /* ViewController.swift */; };
-		B23860212C0F15AA00F84480 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B23860202C0F15AA00F84480 /* Base */; };
 		B23860232C0F15AC00F84480 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23860222C0F15AC00F84480 /* Assets.xcassets */; };
 		B23860262C0F15AC00F84480 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B23860252C0F15AC00F84480 /* Base */; };
 		B23860342C0F15D800F84480 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23860332C0F15D800F84480 /* KeyboardViewController.swift */; };
@@ -42,11 +47,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B21B93A82C103D3C0024E70A /* Automata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Automata.swift; sourceTree = "<group>"; };
+		B21B93AA2C1041700024E70A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B21B93AC2C1073F60024E70A /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
+		B21B93AE2C1074CC0024E70A /* AllowFullAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowFullAccessView.swift; sourceTree = "<group>"; };
+		B21B93B02C1074E70024E70A /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		B21B93B12C1075400024E70A /* HowToUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseView.swift; sourceTree = "<group>"; };
+		B21B93B32C1077C40024E70A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		B21B93B72C10861A0024E70A /* UIKitLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitLabel.swift; sourceTree = "<group>"; };
 		B23860162C0F15AA00F84480 /* MoaKey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoaKey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23860192C0F15AA00F84480 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B238601B2C0F15AA00F84480 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B238601D2C0F15AA00F84480 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B23860202C0F15AA00F84480 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B23860222C0F15AC00F84480 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B23860252C0F15AC00F84480 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B23860272C0F15AC00F84480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,8 +107,12 @@
 			children = (
 				B23860192C0F15AA00F84480 /* AppDelegate.swift */,
 				B238601B2C0F15AA00F84480 /* SceneDelegate.swift */,
-				B238601D2C0F15AA00F84480 /* ViewController.swift */,
-				B238601F2C0F15AA00F84480 /* Main.storyboard */,
+				B21B93AA2C1041700024E70A /* ContentView.swift */,
+				B21B93AC2C1073F60024E70A /* WelcomeScreen.swift */,
+				B21B93AE2C1074CC0024E70A /* AllowFullAccessView.swift */,
+				B21B93B72C10861A0024E70A /* UIKitLabel.swift */,
+				B21B93B12C1075400024E70A /* HowToUseView.swift */,
+				B21B93B32C1077C40024E70A /* Localizable.xcstrings */,
 				B23860222C0F15AC00F84480 /* Assets.xcassets */,
 				B23860242C0F15AC00F84480 /* LaunchScreen.storyboard */,
 				B23860272C0F15AC00F84480 /* Info.plist */,
@@ -110,6 +125,7 @@
 			children = (
 				B23860332C0F15D800F84480 /* KeyboardViewController.swift */,
 				B23860352C0F15D800F84480 /* Info.plist */,
+				B21B93A82C103D3C0024E70A /* Automata.swift */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -173,11 +189,12 @@
 			};
 			buildConfigurationList = B23860112C0F15AA00F84480 /* Build configuration list for PBXProject "MoaKey" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = B238600D2C0F15AA00F84480;
 			productRefGroup = B23860172C0F15AA00F84480 /* Products */;
@@ -197,7 +214,7 @@
 			files = (
 				B23860232C0F15AC00F84480 /* Assets.xcassets in Resources */,
 				B23860262C0F15AC00F84480 /* Base in Resources */,
-				B23860212C0F15AA00F84480 /* Base in Resources */,
+				B21B93B42C1077C40024E70A /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,8 +232,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B238601E2C0F15AA00F84480 /* ViewController.swift in Sources */,
+				B21B93B22C1075400024E70A /* HowToUseView.swift in Sources */,
 				B238601A2C0F15AA00F84480 /* AppDelegate.swift in Sources */,
+				B21B93B82C10861B0024E70A /* UIKitLabel.swift in Sources */,
+				B21B93AF2C1074CC0024E70A /* AllowFullAccessView.swift in Sources */,
+				B21B93AB2C1041700024E70A /* ContentView.swift in Sources */,
+				B21B93AD2C1073F60024E70A /* WelcomeScreen.swift in Sources */,
 				B238601C2C0F15AA00F84480 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B23860342C0F15D800F84480 /* KeyboardViewController.swift in Sources */,
+				B21B93A92C103D3C0024E70A /* Automata.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,18 +262,11 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B238601F2C0F15AA00F84480 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B23860202C0F15AA00F84480 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B23860242C0F15AC00F84480 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B23860252C0F15AC00F84480 /* Base */,
+				B21B93B02C1074E70024E70A /* ko */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -264,6 +279,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -311,7 +327,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -327,6 +343,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -368,7 +385,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -386,14 +403,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 98882K9P37;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoaKey/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -401,9 +419,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.n30gu1.MoaKey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -415,14 +437,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 98882K9P37;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoaKey/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -430,9 +453,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.n30gu1.MoaKey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -441,11 +468,12 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 98882K9P37;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Keyboard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Keyboard;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,9 +483,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.n30gu1.MoaKey.Keyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -466,11 +498,12 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 98882K9P37;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Keyboard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Keyboard;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,9 +513,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.n30gu1.MoaKey.Keyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
