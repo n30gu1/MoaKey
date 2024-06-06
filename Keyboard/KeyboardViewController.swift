@@ -7,6 +7,9 @@
 
 import UIKit
 
+var isVirgin = true
+var height: CGFloat = 0.0
+
 class KeyboardViewController: UIInputViewController {
     @IBOutlet var nextKeyboardButton: UIButton!
     
@@ -32,17 +35,29 @@ class KeyboardViewController: UIInputViewController {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
         self.automata = Automata(proxy: proxy)
         
-        self.inputView?.allowsSelfSizing = true
-        
         setupNextKeyboardButton()
         setupKeyboardLayout()
         setupStacks()
+        
+        if !isVirgin {
+            NSLayoutConstraint.activate([
+                self.keyboardView.heightAnchor.constraint(equalToConstant: height)
+            ])
+        }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        // Set keyboard height to 1.2 times of the default height
-        // Default height is different by device
-        
+    override func viewDidAppear(_ animated: Bool) {
+        if isVirgin {
+            let defaultHeight = self.view.frame.height
+            
+            height = self.view.frame.height
+            
+            isVirgin = false
+            
+            NSLayoutConstraint.activate([
+                self.keyboardView.heightAnchor.constraint(equalToConstant: height)
+            ])
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -156,8 +171,7 @@ extension KeyboardViewController {
         self.fifthRowStack.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-//            self.keyboardView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            self.keyboardView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 1.2),
+            self.keyboardView.topAnchor.constraint(equalTo: self.view.topAnchor),
             self.keyboardView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             self.keyboardView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.keyboardView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
@@ -185,8 +199,7 @@ extension KeyboardViewController {
             self.fifthRowStack.topAnchor.constraint(equalTo: self.fourthRowStack.bottomAnchor),
             self.fifthRowStack.leadingAnchor.constraint(equalTo: self.keyboardView.leadingAnchor),
             self.fifthRowStack.trailingAnchor.constraint(equalTo: self.keyboardView.trailingAnchor),
-            self.fourthRowStack.heightAnchor.constraint(equalTo: self.keyboardView.heightAnchor, multiplier: 0.2)
-//            self.fifthRowStack.bottomAnchor.constraint(equalTo: self.keyboardView.bottomAnchor)
+            self.fifthRowStack.heightAnchor.constraint(equalTo: self.keyboardView.heightAnchor, multiplier: 0.2)
         ])
     }
     
