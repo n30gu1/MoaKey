@@ -7,9 +7,6 @@
 
 import UIKit
 
-var isVirgin = true
-var height: CGFloat = 0.0
-
 class KeyboardViewController: UIInputViewController {
     @IBOutlet var nextKeyboardButton: UIButton!
     
@@ -26,6 +23,9 @@ class KeyboardViewController: UIInputViewController {
         super.updateViewConstraints()
         
         // Add custom view sizing constraints here
+        let height: CGFloat = 270.0
+        
+        self.view.heightAnchor.constraint(equalToConstant: height).isActive = true
     }
     
     override func viewDidLoad() {
@@ -38,26 +38,14 @@ class KeyboardViewController: UIInputViewController {
         setupNextKeyboardButton()
         setupKeyboardLayout()
         setupStacks()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
-        if !isVirgin {
-            NSLayoutConstraint.activate([
-                self.keyboardView.heightAnchor.constraint(equalToConstant: height)
-            ])
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if isVirgin {
-            let defaultHeight = self.view.frame.height
-            
-            height = self.view.frame.height
-            
-            isVirgin = false
-            
-            NSLayoutConstraint.activate([
-                self.keyboardView.heightAnchor.constraint(equalToConstant: height)
-            ])
-        }
+        
     }
     
     override func viewWillLayoutSubviews() {
