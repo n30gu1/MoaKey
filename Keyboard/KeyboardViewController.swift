@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import RepresentableKit
 
 class KeyboardViewController: UIInputViewController {
     @IBOutlet var nextKeyboardButton: UIButton!
@@ -36,10 +37,12 @@ class KeyboardViewController: UIInputViewController {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
         self.automata = Automata(proxy: proxy)
         
-        setupNextKeyboardButton()
-//        setupKeyboardLayout()
-//        setupStacks()
-        let hosting = UIHostingController(rootView: KeyboardView(automata: automata))
+        let nextKeyboardButton = setupNextKeyboardButton()
+        let hosting = UIHostingController(rootView: KeyboardView(automata: automata) {
+            UIViewAdaptor {
+                nextKeyboardButton
+            }
+        })
         hosting.view.backgroundColor = .clear
         self.view.addSubview(hosting.view)
         hosting.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -77,7 +80,7 @@ class KeyboardViewController: UIInputViewController {
 }
 
 extension KeyboardViewController {
-    func setupNextKeyboardButton() {
+    func setupNextKeyboardButton() -> UIButton {
         self.nextKeyboardButton = UIButton(type: .system)
         
         self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
@@ -86,9 +89,6 @@ extension KeyboardViewController {
         
         self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
         
-        self.view.addSubview(self.nextKeyboardButton)
-        
-        self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        return nextKeyboardButton
     }
 }

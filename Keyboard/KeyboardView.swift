@@ -12,8 +12,15 @@ let secondRow = ["ㅂ", "ㅈ", "ㄷ", "ㄱ", "ㅅ"]
 let thirdRow = ["ㅁ", "ㄴ", "ㅇ", "ㄹ", "ㅎ"]
 let fourthRow = ["ㅋ", "ㅌ", "ㅊ", "ㅍ"]
 
-struct KeyboardView: View {
+struct KeyboardView<NextKeyboardButton: View>: View {
     @ObservedObject var automata: Automata
+    @ViewBuilder var nextKeyboard: NextKeyboardButton
+
+    init(automata: Automata, nextKeyboardButton: @escaping () -> NextKeyboardButton) {
+        self.automata = automata
+        nextKeyboard = nextKeyboardButton()
+    }
+
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 0) {
@@ -35,6 +42,9 @@ struct KeyboardView: View {
                 ForEach(fourthRow, id: \.self) { key in
                     KeyboardKey(character: key, automata: self.automata)
                 }
+            }
+            HStack(spacing: 0) {
+                nextKeyboard
             }
         }
     }
