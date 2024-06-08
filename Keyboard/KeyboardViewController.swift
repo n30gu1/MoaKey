@@ -5,9 +5,9 @@
 //  Created by Park Seongheon on 6/4/24.
 //
 
+import RepresentableKit
 import SwiftUI
 import UIKit
-import RepresentableKit
 
 class KeyboardViewController: UIInputViewController {
     @IBOutlet var nextKeyboardButton: UIButton!
@@ -36,11 +36,10 @@ class KeyboardViewController: UIInputViewController {
         // Perform custom UI setup here
         let proxy = self.textDocumentProxy as UITextDocumentProxy
         self.automata = Automata(proxy: proxy)
-        
-        let nextKeyboardButton = setupNextKeyboardButton()
+        self.nextKeyboardButton = setupNextKeyboardButton()
         let hosting = UIHostingController(rootView: KeyboardView(automata: automata) {
             UIViewAdaptor {
-                nextKeyboardButton
+                self.nextKeyboardButton
             }
         })
         hosting.view.backgroundColor = .clear
@@ -74,7 +73,6 @@ class KeyboardViewController: UIInputViewController {
             if !textInput.hasText {
                 self.automata.endComposing()
             }
-            
         }
     }
 }
@@ -89,6 +87,6 @@ extension KeyboardViewController {
         
         self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
         
-        return nextKeyboardButton
+        return self.nextKeyboardButton
     }
 }

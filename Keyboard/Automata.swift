@@ -9,7 +9,7 @@ import UIKit
 
 final class Automata: ObservableObject {
     static let chosungTable = ["ㄱ": 0, "ㄲ": 1, "ㄴ": 2, "ㄷ": 3, "ㄸ": 4, "ㄹ": 5, "ㅁ": 6, "ㅂ": 7, "ㅃ": 8, "ㅅ": 9, "ㅆ": 10, "ㅇ": 11, "ㅈ": 12, "ㅉ": 13, "ㅊ": 14, "ㅋ": 15, "ㅌ": 16, "ㅍ": 17, "ㅎ": 18]
-//    private let jungsungTable = ["ㅏ": 0, "ㅐ": 1, "ㅑ": 2, "ㅒ": 3, "ㅓ": 4, "ㅔ": 5, "ㅕ": 6, "ㅖ": 7, "ㅗ": 8, "ㅘ": 9, "ㅙ": 10, "ㅚ": 11, "ㅛ": 12, "ㅜ": 13, "ㅝ": 14, "ㅞ": 15, "ㅟ": 16, "ㅠ": 17, "ㅡ": 18, "ㅢ": 19, "ㅣ": 20]
+//    static let jungsungTable = ["ㅏ": 0, "ㅐ": 1, "ㅑ": 2, "ㅒ": 3, "ㅓ": 4, "ㅔ": 5, "ㅕ": 6, "ㅖ": 7, "ㅗ": 8, "ㅘ": 9, "ㅙ": 10, "ㅚ": 11, "ㅛ": 12, "ㅜ": 13, "ㅝ": 14, "ㅞ": 15, "ㅟ": 16, "ㅠ": 17, "ㅡ": 18, "ㅢ": 19, "ㅣ": 20]
     static let jongsungTable = ["": 0, "ㄱ": 1, "ㄲ": 2, "ㄳ": 3, "ㄴ": 4, "ㄵ": 5, "ㄶ": 6, "ㄷ": 7, "ㄹ": 8, "ㄺ": 9, "ㄻ": 10, "ㄼ": 11, "ㄽ": 12, "ㄾ": 13, "ㄿ": 14, "ㅀ": 15, "ㅁ": 16, "ㅂ": 17, "ㅄ": 18, "ㅅ": 19, "ㅆ": 20, "ㅇ": 21, "ㅈ": 22, "ㅊ": 23, "ㅋ": 24, "ㅌ": 25, "ㅍ": 26, "ㅎ": 27]
     
     private var baseCode: Int? = nil
@@ -33,6 +33,10 @@ final class Automata: ObservableObject {
     /// 글자를 조건에 맞게 입력한다.
     /// 자음만 받은 경우 이어 결합하는 것을 원칙으로 한다. 자음과 모음을 함께 받는 경우 결합을 종료하고 무조건 다음 글자를 생성한다.
     func input(consonent: String, syllable: Int? = nil) {
+        if !proxy.hasText || proxy.documentContextBeforeInput?.last?.isWhitespace ?? false {
+            endComposing()
+        }
+        
         if let syllable {
             sparse = []
             baseCode = generateUnicode(cho: consonent, jung: syllable)
@@ -51,6 +55,11 @@ final class Automata: ObservableObject {
             proxy.insertText("\(UnicodeScalar(0x1100 + Automata.chosungTable[consonent]!)!)")
             endComposing()
         }
+    }
+    
+    func space() {
+        proxy.insertText(" ")
+        endComposing()
     }
     
     func generateUnicode(cho: String, jung: Int) -> Int {
