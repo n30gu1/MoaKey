@@ -5,6 +5,7 @@
 //  Created by Park Seongheon on 6/4/24.
 //
 
+import SwiftUI
 import UIKit
 
 class KeyboardViewController: UIInputViewController {
@@ -36,16 +37,12 @@ class KeyboardViewController: UIInputViewController {
         self.automata = Automata(proxy: proxy)
         
         setupNextKeyboardButton()
-        setupKeyboardLayout()
-        setupStacks()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
+//        setupKeyboardLayout()
+//        setupStacks()
+        let hosting = UIHostingController(rootView: KeyboardView(automata: automata))
+        hosting.view.backgroundColor = .clear
+        self.view.addSubview(hosting.view)
+        hosting.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
     override func viewWillLayoutSubviews() {
@@ -68,6 +65,14 @@ class KeyboardViewController: UIInputViewController {
             textColor = UIColor.black
         }
         self.nextKeyboardButton.setTitleColor(textColor, for: [])
+        
+        if let textInput {
+            print(textInput.hasText)
+            if !textInput.hasText {
+                self.automata.endComposing()
+            }
+            
+        }
     }
 }
 
@@ -86,110 +91,4 @@ extension KeyboardViewController {
         self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
     }
-    
-    func setupKeyboardLayout() {
-        self.keyboardView = UIView()
-        self.keyboardView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(self.keyboardView)
-        
-        self.firstRowStack = {
-            let s = UIStackView()
-            s.axis = .horizontal
-            s.alignment = .fill
-            s.distribution = .fillEqually
-            s.spacing = 0
-            s.backgroundColor = .red
-            
-            return s
-        }()
-        
-        self.secondRowStack = {
-            let s = UIStackView()
-            s.axis = .horizontal
-            s.alignment = .fill
-            s.distribution = .fillEqually
-            s.spacing = 0
-            s.backgroundColor = .blue
-            
-            return s
-        }()
-        
-        self.thirdRowStack = {
-            let s = UIStackView()
-            s.axis = .horizontal
-            s.alignment = .fill
-            s.distribution = .fillEqually
-            s.spacing = 0
-            s.backgroundColor = .green
-            
-            return s
-        }()
-        
-        self.fourthRowStack = {
-            let s = UIStackView()
-            s.axis = .horizontal
-            s.alignment = .fill
-            s.distribution = .fillEqually
-            s.spacing = 0
-            s.backgroundColor = .darkGray
-            
-            return s
-        }()
-        
-        self.fifthRowStack = {
-            let s = UIStackView()
-            s.axis = .horizontal
-            s.alignment = .fill
-            s.distribution = .fillEqually
-            s.spacing = 0
-            
-            return s
-        }()
-        
-        self.keyboardView.addSubview(self.firstRowStack)
-        self.keyboardView.addSubview(self.secondRowStack)
-        self.keyboardView.addSubview(self.thirdRowStack)
-        self.keyboardView.addSubview(self.fourthRowStack)
-        self.keyboardView.addSubview(self.fifthRowStack)
-        
-        self.firstRowStack.translatesAutoresizingMaskIntoConstraints = false
-        self.secondRowStack.translatesAutoresizingMaskIntoConstraints = false
-        self.thirdRowStack.translatesAutoresizingMaskIntoConstraints = false
-        self.fourthRowStack.translatesAutoresizingMaskIntoConstraints = false
-        self.fifthRowStack.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            self.keyboardView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            self.keyboardView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            self.keyboardView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.keyboardView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            
-            self.firstRowStack.topAnchor.constraint(equalTo: self.keyboardView.topAnchor),
-            self.firstRowStack.leadingAnchor.constraint(equalTo: self.keyboardView.leadingAnchor),
-            self.firstRowStack.trailingAnchor.constraint(equalTo: self.keyboardView.trailingAnchor),
-            self.firstRowStack.heightAnchor.constraint(equalTo: self.keyboardView.heightAnchor, multiplier: 0.2),
-            
-            self.secondRowStack.topAnchor.constraint(equalTo: self.firstRowStack.bottomAnchor),
-            self.secondRowStack.leadingAnchor.constraint(equalTo: self.keyboardView.leadingAnchor),
-            self.secondRowStack.trailingAnchor.constraint(equalTo: self.keyboardView.trailingAnchor),
-            self.secondRowStack.heightAnchor.constraint(equalTo: self.keyboardView.heightAnchor, multiplier: 0.2),
-            
-            self.thirdRowStack.topAnchor.constraint(equalTo: self.secondRowStack.bottomAnchor),
-            self.thirdRowStack.leadingAnchor.constraint(equalTo: self.keyboardView.leadingAnchor),
-            self.thirdRowStack.trailingAnchor.constraint(equalTo: self.keyboardView.trailingAnchor),
-            self.thirdRowStack.heightAnchor.constraint(equalTo: self.keyboardView.heightAnchor, multiplier: 0.2),
-            
-            self.fourthRowStack.topAnchor.constraint(equalTo: self.thirdRowStack.bottomAnchor),
-            self.fourthRowStack.leadingAnchor.constraint(equalTo: self.keyboardView.leadingAnchor),
-            self.fourthRowStack.trailingAnchor.constraint(equalTo: self.keyboardView.trailingAnchor),
-            self.fourthRowStack.heightAnchor.constraint(equalTo: self.keyboardView.heightAnchor, multiplier: 0.2),
-            
-            self.fifthRowStack.topAnchor.constraint(equalTo: self.fourthRowStack.bottomAnchor),
-            self.fifthRowStack.leadingAnchor.constraint(equalTo: self.keyboardView.leadingAnchor),
-            self.fifthRowStack.trailingAnchor.constraint(equalTo: self.keyboardView.trailingAnchor),
-            self.fifthRowStack.heightAnchor.constraint(equalTo: self.keyboardView.heightAnchor, multiplier: 0.2)
-        ])
-    }
-    
-    func setupStacks() {}
 }

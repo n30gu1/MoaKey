@@ -2,19 +2,44 @@
 //  KeyboardView.swift
 //  Keyboard
 //
-//  Created by Park Seongheon on 6/6/24.
+//  Created by Park Seongheon on 6/7/24.
 //
 
-import UIKit
+import SwiftUI
 
-class KeyboardView: UIView {
+let firstRow = ["ㅃ", "ㅉ", "ㄸ", "ㄲ", "ㅆ"]
+let secondRow = ["ㅂ", "ㅈ", "ㄷ", "ㄱ", "ㅅ"]
+let thirdRow = ["ㅁ", "ㄴ", "ㅇ", "ㄹ", "ㅎ"]
+let fourthRow = ["ㅋ", "ㅌ", "ㅊ", "ㅍ"]
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+struct KeyboardView: View {
+    @ObservedObject var automata: Automata
+    var body: some View {
+        VStack(spacing: 0) {
+            HStack(spacing: 0) {
+                ForEach(firstRow, id: \.self) { key in
+                    KeyboardKey(character: key, automata: self.automata)
+                }
+            }
+            HStack(spacing: 0) {
+                ForEach(secondRow, id: \.self) { key in
+                    KeyboardKey(character: key, automata: self.automata)
+                }
+            }
+            HStack(spacing: 0) {
+                ForEach(thirdRow, id: \.self) { key in
+                    KeyboardKey(character: key, automata: self.automata)
+                }
+            }
+            HStack(spacing: 0) {
+                ForEach(fourthRow, id: \.self) { key in
+                    KeyboardKey(character: key, automata: self.automata)
+                }
+            }
+        }
     }
-    */
-    
 }
+
+// #Preview {
+//    KeyboardView()
+// }
