@@ -25,15 +25,16 @@ class KeyboardViewController: UIInputViewController {
         super.updateViewConstraints()
         
         // Add custom view sizing constraints here
-        let height: CGFloat = 270.0
-        
-        self.view.heightAnchor.constraint(equalToConstant: height).isActive = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Perform custom UI setup here
+//        let height: CGFloat = 270.0
+//        
+//        self.view.heightAnchor.constraint(equalToConstant: height).isActive = true
+        
         let proxy = self.textDocumentProxy as UITextDocumentProxy
         self.automata = Automata(proxy: proxy)
         self.nextKeyboardButton = setupNextKeyboardButton()
