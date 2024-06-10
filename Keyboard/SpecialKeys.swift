@@ -36,7 +36,7 @@ struct SpecialKeys: View {
     var body: some View {
         Text(label)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.white) // TODO: Change color to system
+            .background(Color(red: 172/255, green: 177/255, blue: 185/255)) // TODO: Change color to system
             .cornerRadius(6)
             .shadow(radius: 0.4, x: 0, y: 1)
             .gesture(

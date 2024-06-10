@@ -12,13 +12,6 @@ import UIKit
 class KeyboardViewController: UIInputViewController {
     @IBOutlet var nextKeyboardButton: UIButton!
     
-    @IBOutlet var keyboardView: UIView!
-    @IBOutlet var firstRowStack: UIStackView!
-    @IBOutlet var secondRowStack: UIStackView!
-    @IBOutlet var thirdRowStack: UIStackView!
-    @IBOutlet var fourthRowStack: UIStackView!
-    @IBOutlet var fifthRowStack: UIStackView!
-    
     private var automata: Automata!
     
     override func updateViewConstraints() {
@@ -31,21 +24,7 @@ class KeyboardViewController: UIInputViewController {
         super.viewDidLoad()
         
         // Perform custom UI setup here
-//        let height: CGFloat = 270.0
-//        
-//        self.view.heightAnchor.constraint(equalToConstant: height).isActive = true
-        
-        let proxy = self.textDocumentProxy as UITextDocumentProxy
-        self.automata = Automata(proxy: proxy)
-        self.nextKeyboardButton = setupNextKeyboardButton()
-        let hosting = UIHostingController(rootView: KeyboardView(automata: automata) {
-            UIViewAdaptor {
-                self.nextKeyboardButton
-            }
-        })
-        hosting.view.backgroundColor = .clear
-        self.view.addSubview(hosting.view)
-        hosting.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        setupKeyboardView()
     }
     
     override func viewWillLayoutSubviews() {
@@ -70,7 +49,6 @@ class KeyboardViewController: UIInputViewController {
         self.nextKeyboardButton.setTitleColor(textColor, for: [])
         
         if let textInput {
-            print(textInput.hasText)
             if !textInput.hasText {
                 self.automata.endComposing()
             }
@@ -89,5 +67,26 @@ extension KeyboardViewController {
         self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
         
         return self.nextKeyboardButton
+    }
+    
+    func setupKeyboardView() {
+        let proxy = self.textDocumentProxy as UITextDocumentProxy
+        self.automata = Automata(proxy: proxy)
+        self.nextKeyboardButton = self.setupNextKeyboardButton()
+        let hosting = UIHostingController(rootView: KeyboardView(automata: automata) {
+            UIViewAdaptor {
+                self.nextKeyboardButton
+            }
+        })
+        hosting.view.backgroundColor = .clear
+        self.view.addSubview(hosting.view)
+        hosting.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            hosting.view.heightAnchor.constraint(equalToConstant: 250),
+            hosting.view.topAnchor.constraint(equalTo: self.view.topAnchor),
+            hosting.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            hosting.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            hosting.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        ])
     }
 }

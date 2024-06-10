@@ -45,7 +45,6 @@ final class Automata: ObservableObject {
             sparse.append(consonent)
             let code = generateUnicodeWithBaseCode()
             proxy.deleteBackward()
-            print("\(UnicodeScalar(code)!)")
             proxy.insertText("\(UnicodeScalar(code)!)")
             
             if isJongFull {
@@ -100,5 +99,10 @@ final class Automata: ObservableObject {
     func endComposing() {
         sparse = []
         baseCode = nil
+    }
+    
+    func backspace() {
+        proxy.deleteBackward()
+        endComposing()
     }
 }

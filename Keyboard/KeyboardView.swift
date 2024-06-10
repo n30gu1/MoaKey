@@ -42,8 +42,12 @@ struct KeyboardView<NextKeyboardButton: View>: View {
                 ForEach(fourthRow, id: \.self) { key in
                     KeyboardKey(character: key, automata: self.automata)
                 }
+                SpecialKeys(automata: automata, onTapUp: {
+                    self.automata.backspace()
+                }, label: "⌫")
             }
             HStack(spacing: 0) {
+                SpecialKeys(automata: automata, label: "123")
                 nextKeyboard
                 SpecialKeys(automata: automata, onTapUp: {
                     self.automata.space()
