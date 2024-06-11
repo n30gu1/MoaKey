@@ -10,7 +10,8 @@ import SwiftUI
 import UIKit
 
 class KeyboardViewController: UIInputViewController {
-    @IBOutlet var nextKeyboardButton: UIButton!
+    var nextKeyboardButton: UIButton!
+    var shouldNextKeyboardButtonHidden: Bool!
     
     private var automata: Automata!
     
@@ -28,7 +29,7 @@ class KeyboardViewController: UIInputViewController {
     }
     
     override func viewWillLayoutSubviews() {
-        self.nextKeyboardButton.isHidden = !self.needsInputModeSwitchKey
+        self.shouldNextKeyboardButtonHidden = !self.needsInputModeSwitchKey
         super.viewWillLayoutSubviews()
     }
     
@@ -58,10 +59,11 @@ class KeyboardViewController: UIInputViewController {
 
 extension KeyboardViewController {
     func setupNextKeyboardButton() -> UIButton {
-        self.nextKeyboardButton = UIButton(type: .system)
+        self.nextKeyboardButton = UIButton(type: .custom)
         
-        self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
-        self.nextKeyboardButton.sizeToFit()
+        self.nextKeyboardButton.setTitle(NSLocalizedString("🌐", comment: "Title for 'Next Keyboard' button"), for: [])
+        //        self.nextKeyboardButton.backgroundColor = #colorLiteral(red: 0.7298241258, green: 0.7478584647, blue: 0.7744403481, alpha: 1)
+//        self.nextKeyboardButton.sizeToFit()
         self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
         
         self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)

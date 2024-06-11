@@ -48,11 +48,20 @@ struct KeyboardView<NextKeyboardButton: View>: View {
             }
             HStack(spacing: 0) {
                 SpecialKeys(automata: automata, label: "123")
+                    .frame(width: 47)
                 nextKeyboard
+                    .background(Color(red: 172/255, green: 177/255, blue: 185/255))
+                    .cornerRadius(CORNER_RADIUS)
+                    .shadow(radius: 0.4, x: 0, y: 1)
+                    .padding(4)
+                    .frame(width: 50)
                 SpecialKeys(automata: automata, onTapUp: {
                     self.automata.space()
                 }, label: "스페이스")
-                Spacer()
+                SpecialKeys(automata: automata, onTapUp: {
+                    
+                }, label: "⏎")
+                    .frame(width: 100)
             }
         }
     }

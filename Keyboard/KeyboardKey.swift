@@ -28,7 +28,7 @@ struct KeyboardKey: View {
         Text(isPressed ? "" : character)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.white) // TODO: Change color to system
-            .cornerRadius(6)
+            .cornerRadius(CORNER_RADIUS)
             .shadow(radius: 0.4, x: 0, y: 1)
             .gesture(
                 DragGesture(minimumDistance: 0)

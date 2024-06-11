@@ -37,7 +37,7 @@ struct SpecialKeys: View {
         Text(label)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(red: 172/255, green: 177/255, blue: 185/255)) // TODO: Change color to system
-            .cornerRadius(6)
+            .cornerRadius(CORNER_RADIUS)
             .shadow(radius: 0.4, x: 0, y: 1)
             .gesture(
                 DragGesture(minimumDistance: 0)
