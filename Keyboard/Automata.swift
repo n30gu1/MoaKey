@@ -105,4 +105,8 @@ final class Automata: ObservableObject {
         proxy.deleteBackward()
         endComposing()
     }
+    
+    func newLine() {
+        proxy.insertText("\n")
+    }
 }
