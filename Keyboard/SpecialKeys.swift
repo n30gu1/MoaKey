@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SpecialKeys: View {
+struct SpecialKeys<Subview: View>: View {
     @State private var isPressed = false
     @ObservedObject var automata: Automata
     let onTapDown: () -> Void
@@ -15,7 +15,7 @@ struct SpecialKeys: View {
     let onLongTapDown: () -> Void
     let onLongTapUp: () -> Void
 
-    let label: String
+    @ViewBuilder let subview: () -> Subview
 
     init(
         automata: Automata,
@@ -23,18 +23,18 @@ struct SpecialKeys: View {
         onTapUp: (@escaping () -> Void) = {},
         onLongTapDown: (@escaping () -> Void) = {},
         onLongTapUp: (@escaping () -> Void) = {},
-        label: String
+        @ViewBuilder subview: @escaping () -> Subview
     ) {
         self.automata = automata
         self.onTapDown = onTapDown
         self.onTapUp = onTapUp
         self.onLongTapDown = onLongTapDown
         self.onLongTapUp = onLongTapUp
-        self.label = label
+        self.subview = subview
     }
 
     var body: some View {
-        Text(label)
+        subview()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(red: 172/255, green: 177/255, blue: 185/255)) // TODO: Change color to system
             .cornerRadius(CORNER_RADIUS)

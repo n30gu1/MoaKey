@@ -44,10 +44,14 @@ struct KeyboardView<NextKeyboardButton: View>: View {
                 }
                 SpecialKeys(automata: automata, onTapUp: {
                     self.automata.backspace()
-                }, label: "⌫")
+                }, subview: {
+                    Text("⌫")
+                })
             }
             HStack(spacing: 0) {
-                SpecialKeys(automata: automata, label: "123")
+                SpecialKeys(automata: automata, subview: {
+                    Text("123")
+                })
                     .frame(width: 47)
                 nextKeyboard
                     .background(Color(red: 172/255, green: 177/255, blue: 185/255))
@@ -57,10 +61,14 @@ struct KeyboardView<NextKeyboardButton: View>: View {
                     .frame(width: 50)
                 SpecialKeys(automata: automata, onTapUp: {
                     self.automata.space()
-                }, label: "스페이스")
+                }, subview: {
+                    Text("스페이스")
+                })
                 SpecialKeys(automata: automata, onTapUp: {
                     
-                }, label: "⏎")
+                }, subview: {
+                    Text("⏎")
+                })
                     .frame(width: 100)
             }
         }

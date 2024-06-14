@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: Variables and Initializer
 final class Automata: ObservableObject {
     static let chosungTable = ["ㄱ": 0, "ㄲ": 1, "ㄴ": 2, "ㄷ": 3, "ㄸ": 4, "ㄹ": 5, "ㅁ": 6, "ㅂ": 7, "ㅃ": 8, "ㅅ": 9, "ㅆ": 10, "ㅇ": 11, "ㅈ": 12, "ㅉ": 13, "ㅊ": 14, "ㅋ": 15, "ㅌ": 16, "ㅍ": 17, "ㅎ": 18]
 //    static let jungsungTable = ["ㅏ": 0, "ㅐ": 1, "ㅑ": 2, "ㅒ": 3, "ㅓ": 4, "ㅔ": 5, "ㅕ": 6, "ㅖ": 7, "ㅗ": 8, "ㅘ": 9, "ㅙ": 10, "ㅚ": 11, "ㅛ": 12, "ㅜ": 13, "ㅝ": 14, "ㅞ": 15, "ㅟ": 16, "ㅠ": 17, "ㅡ": 18, "ㅢ": 19, "ㅣ": 20]
@@ -29,9 +30,10 @@ final class Automata: ObservableObject {
     init(proxy: UITextDocumentProxy) {
         self.proxy = proxy
     }
-    
-    /// 글자를 조건에 맞게 입력한다.
-    /// 자음만 받은 경우 이어 결합하는 것을 원칙으로 한다. 자음과 모음을 함께 받는 경우 결합을 종료하고 무조건 다음 글자를 생성한다.
+}
+
+// MARK: Functions
+extension Automata {
     func input(consonent: String, syllable: Int? = nil) {
         if !proxy.hasText || proxy.documentContextBeforeInput?.last?.isWhitespace ?? false {
             endComposing()

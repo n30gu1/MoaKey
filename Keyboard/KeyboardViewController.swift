@@ -5,12 +5,10 @@
 //  Created by Park Seongheon on 6/4/24.
 //
 
-import RepresentableKit
 import SwiftUI
 import UIKit
 
 class KeyboardViewController: UIInputViewController {
-    var nextKeyboardButton: UIButton!
     var shouldNextKeyboardButtonHidden: Bool!
     
     private var automata: Automata!
@@ -40,14 +38,14 @@ class KeyboardViewController: UIInputViewController {
     override func textDidChange(_ textInput: UITextInput?) {
         // The app has just changed the document's contents, the document context has been updated.
         
-        var textColor: UIColor
-        let proxy = self.textDocumentProxy
-        if proxy.keyboardAppearance == UIKeyboardAppearance.dark {
-            textColor = UIColor.white
-        } else {
-            textColor = UIColor.black
-        }
-        self.nextKeyboardButton.setTitleColor(textColor, for: [])
+//        var textColor: UIColor
+//        let proxy = self.textDocumentProxy
+//        if proxy.keyboardAppearance == UIKeyboardAppearance.dark {
+//            textColor = UIColor.white
+//        } else {
+//            textColor = UIColor.black
+//        }
+//        self.nextKeyboardButton.setTitleColor(textColor, for: [])
         
         if let textInput {
             if !textInput.hasText {
@@ -58,27 +56,12 @@ class KeyboardViewController: UIInputViewController {
 }
 
 extension KeyboardViewController {
-    func setupNextKeyboardButton() -> UIButton {
-        self.nextKeyboardButton = UIButton(type: .custom)
-        
-        self.nextKeyboardButton.setTitle(NSLocalizedString("🌐", comment: "Title for 'Next Keyboard' button"), for: [])
-        //        self.nextKeyboardButton.backgroundColor = #colorLiteral(red: 0.7298241258, green: 0.7478584647, blue: 0.7744403481, alpha: 1)
-//        self.nextKeyboardButton.sizeToFit()
-        self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
-        
-        return self.nextKeyboardButton
-    }
-    
     func setupKeyboardView() {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
         self.automata = Automata(proxy: proxy)
-        self.nextKeyboardButton = self.setupNextKeyboardButton()
+        let nextKeyboardButton = NextKeyboardButton(target: self, selector: #selector(handleInputModeList(from:with:)))
         let hosting = UIHostingController(rootView: KeyboardView(automata: automata) {
-            UIViewAdaptor {
-                self.nextKeyboardButton
-            }
+            nextKeyboardButton
         })
         hosting.view.backgroundColor = .clear
         self.view.addSubview(hosting.view)
@@ -90,5 +73,32 @@ extension KeyboardViewController {
             hosting.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             hosting.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
+    }
+}
+
+struct NextKeyboardButton: UIViewRepresentable {
+    weak var target: UIInputViewController!
+    let selector: Selector
+    
+    init(target: UIInputViewController!, selector: Selector) {
+        self.target = target
+        self.selector = selector
+    }
+    
+    func makeUIView(context: Context) -> UIButton {
+        return UIButton(type: .custom)
+    }
+    
+    func updateUIView(_ uiView: UIButton, context: Context) {
+        let configuration = {
+            var c = UIButton.Configuration.filled()
+            c.image = UIImage(systemName: "globe")
+            c.baseBackgroundColor = #colorLiteral(red: 0.7298241258, green: 0.7478584647, blue: 0.7744403481, alpha: 1)
+            c.baseForegroundColor = .black
+            c.background.cornerRadius = CORNER_RADIUS
+            return c
+        }()
+        uiView.configuration = configuration
+        uiView.addTarget(target, action: selector, for: .allTouchEvents)
     }
 }

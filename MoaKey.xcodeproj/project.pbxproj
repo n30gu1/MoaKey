@@ -19,7 +19,6 @@
 		B23860262C0F15AC00F84480 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B23860252C0F15AC00F84480 /* Base */; };
 		B23860342C0F15D800F84480 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23860332C0F15D800F84480 /* KeyboardViewController.swift */; };
 		B23860382C0F15D800F84480 /* Keyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B23860312C0F15D800F84480 /* Keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B23B206E2C1423F000CB422E /* RepresentableKit in Frameworks */ = {isa = PBXBuildFile; productRef = B23B206D2C1423F000CB422E /* RepresentableKit */; };
 		B2768B4C2C173DCD0013FEA8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2768B4B2C173DCD0013FEA8 /* Constants.swift */; };
 		B2864E892C141E0400EFA18C /* SpecialKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2864E882C141E0400EFA18C /* SpecialKeys.swift */; };
 		B29CDF662C129B1000197FC3 /* KeyboardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CDF642C129B1000197FC3 /* KeyboardOverlay.swift */; };
@@ -88,7 +87,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B23B206E2C1423F000CB422E /* RepresentableKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +187,6 @@
 			);
 			name = Keyboard;
 			packageProductDependencies = (
-				B23B206D2C1423F000CB422E /* RepresentableKit */,
 			);
 			productName = Keyboard;
 			productReference = B23860312C0F15D800F84480 /* Keyboard.appex */;
@@ -203,7 +200,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					B23860152C0F15AA00F84480 = {
 						CreatedOnToolsVersion = 15.4;
@@ -432,7 +429,6 @@
 		B238602B2C0F15AC00F84480 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,7 +462,6 @@
 		B238602C2C0F15AC00F84480 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -594,19 +589,11 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/yumemi-inc/RepresentableKit.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		B23B206D2C1423F000CB422E /* RepresentableKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B2864E872C1419D700EFA18C /* XCRemoteSwiftPackageReference "RepresentableKit" */;
-			productName = RepresentableKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B238600E2C0F15AA00F84480 /* Project object */;
 }
