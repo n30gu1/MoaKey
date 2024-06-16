@@ -73,6 +73,9 @@ extension KeyboardViewController {
             hosting.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             hosting.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
+        
+        let gestureRecognizer = UITapGestureRecognizer()
+        
     }
 }
 
