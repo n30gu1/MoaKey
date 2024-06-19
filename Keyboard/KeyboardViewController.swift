@@ -9,8 +9,6 @@ import SwiftUI
 import UIKit
 
 class KeyboardViewController: UIInputViewController {
-    var shouldNextKeyboardButtonHidden: Bool!
-    
     private var automata: Automata!
     
     override func updateViewConstraints() {
@@ -27,7 +25,6 @@ class KeyboardViewController: UIInputViewController {
     }
     
     override func viewWillLayoutSubviews() {
-        self.shouldNextKeyboardButtonHidden = !self.needsInputModeSwitchKey
         super.viewWillLayoutSubviews()
     }
     
@@ -38,14 +35,14 @@ class KeyboardViewController: UIInputViewController {
     override func textDidChange(_ textInput: UITextInput?) {
         // The app has just changed the document's contents, the document context has been updated.
         
-//        var textColor: UIColor
-//        let proxy = self.textDocumentProxy
-//        if proxy.keyboardAppearance == UIKeyboardAppearance.dark {
-//            textColor = UIColor.white
-//        } else {
-//            textColor = UIColor.black
-//        }
-//        self.nextKeyboardButton.setTitleColor(textColor, for: [])
+        //        var textColor: UIColor
+        //        let proxy = self.textDocumentProxy
+        //        if proxy.keyboardAppearance == UIKeyboardAppearance.dark {
+        //            textColor = UIColor.white
+        //        } else {
+        //            textColor = UIColor.black
+        //        }
+        //        self.nextKeyboardButton.setTitleColor(textColor, for: [])
         
         if let textInput {
             if !textInput.hasText {
@@ -59,11 +56,24 @@ extension KeyboardViewController {
     func setupKeyboardView() {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
         self.automata = Automata(proxy: proxy)
+        
         let hosting = UIHostingController(rootView: KeyboardView(automata: automata) {
-            SpecialKeys(
-                target: self,
-                selector: #selector(self.handleInputModeList(from:with:))
-            )
+            HStack(spacing: 0) {
+                SpecialKeys(onTouchUp: {
+                    self.automata.space()
+                })
+                .disableColorChange()
+                .key()
+                .frame(width: self.needsInputModeSwitchKey ? 50 : 100)
+                if self.needsInputModeSwitchKey {
+                    SpecialKeys(
+                        target: self,
+                        selector: #selector(self.handleInputModeList(from:with:))
+                    )
+                    .key()
+                    .frame(width: 50)
+                }
+            }
         })
         hosting.view.backgroundColor = .clear
         self.view.addSubview(hosting.view)
