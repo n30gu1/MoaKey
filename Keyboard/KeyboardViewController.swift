@@ -59,9 +59,11 @@ extension KeyboardViewController {
     func setupKeyboardView() {
         let proxy = self.textDocumentProxy as UITextDocumentProxy
         self.automata = Automata(proxy: proxy)
-        let nextKeyboardButton = NextKeyboardButton(target: self, selector: #selector(handleInputModeList(from:with:)))
         let hosting = UIHostingController(rootView: KeyboardView(automata: automata) {
-            nextKeyboardButton
+            SpecialKeys(
+                target: self,
+                selector: #selector(self.handleInputModeList(from:with:))
+            )
         })
         hosting.view.backgroundColor = .clear
         self.view.addSubview(hosting.view)
@@ -73,35 +75,5 @@ extension KeyboardViewController {
             hosting.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             hosting.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
-        
-        let gestureRecognizer = UITapGestureRecognizer()
-        
-    }
-}
-
-struct NextKeyboardButton: UIViewRepresentable {
-    weak var target: UIInputViewController!
-    let selector: Selector
-    
-    init(target: UIInputViewController!, selector: Selector) {
-        self.target = target
-        self.selector = selector
-    }
-    
-    func makeUIView(context: Context) -> UIButton {
-        return UIButton(type: .custom)
-    }
-    
-    func updateUIView(_ uiView: UIButton, context: Context) {
-        let configuration = {
-            var c = UIButton.Configuration.filled()
-            c.image = UIImage(systemName: "globe")
-            c.baseBackgroundColor = #colorLiteral(red: 0.7298241258, green: 0.7478584647, blue: 0.7744403481, alpha: 1)
-            c.baseForegroundColor = .black
-            c.background.cornerRadius = CORNER_RADIUS
-            return c
-        }()
-        uiView.configuration = configuration
-        uiView.addTarget(target, action: selector, for: .allTouchEvents)
     }
 }

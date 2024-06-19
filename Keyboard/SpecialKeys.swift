@@ -7,58 +7,78 @@
 
 import SwiftUI
 
-struct SpecialKeys<Subview: View>: View {
-    @State private var isPressed = false
-    @ObservedObject var automata: Automata
-    let onTapDown: () -> Void
-    let onTapUp: () -> Void
-    let onLongTapDown: () -> Void
-    let onLongTapUp: () -> Void
-
-    @ViewBuilder let subview: () -> Subview
-
+struct SpecialKeys: UIViewRepresentable {
+    weak var target: UIInputViewController?
+    let selector: Selector?
+    
+    let onTouchDown: () -> Void
+    let onTouchUp: () -> Void
+    
+    var colorDefault: UIColor = .secondarySystemFill
+    var colorOnTouchDown: UIColor = .white
+    
+    @State var backgroundColor: UIColor = .secondarySystemFill
+    
     init(
-        automata: Automata,
-        onTapDown: (@escaping () -> Void) = {},
-        onTapUp: (@escaping () -> Void) = {},
-        onLongTapDown: (@escaping () -> Void) = {},
-        onLongTapUp: (@escaping () -> Void) = {},
-        @ViewBuilder subview: @escaping () -> Subview
+        target: UIInputViewController? = nil, selector: Selector? = nil,
+        onTouchDown: @escaping () -> Void = {},
+        onTouchUp: @escaping () -> Void = {}
     ) {
-        self.automata = automata
-        self.onTapDown = onTapDown
-        self.onTapUp = onTapUp
-        self.onLongTapDown = onLongTapDown
-        self.onLongTapUp = onLongTapUp
-        self.subview = subview
+        self.target = target
+        self.selector = selector
+        self.onTouchDown = onTouchDown
+        self.onTouchUp = onTouchUp
     }
+    
+    func makeUIView(context: Context) -> UIButton {
+        let b = UIButton()
+        b.layer.cornerRadius = CORNER_RADIUS
+        b.backgroundColor = self.backgroundColor
+        return b
+    }
+    
+    func updateUIView(_ uiView: UIButton, context: Context) {
+        uiView.addTarget(context.coordinator, action: #selector(context.coordinator.onTouchDownSel), for: .touchDown)
+        uiView.addTarget(context.coordinator, action: #selector(context.coordinator.onTouchUpSel), for: .touchUpInside)
+        if let target, let selector {
+            uiView.addTarget(target, action: selector, for: .allTouchEvents)
+        }
+        
+        uiView.backgroundColor = self.backgroundColor
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+}
 
-    var body: some View {
-        subview()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(red: 172/255, green: 177/255, blue: 185/255)) // TODO: Change color to system
-            .cornerRadius(CORNER_RADIUS)
-            .shadow(radius: 0.4, x: 0, y: 1)
-            .gesture(
-                DragGesture(minimumDistance: 0)
-                    .onChanged { _ in
-                        isPressed = true
-                        onTapDown()
-                    }
-                    .onEnded { _ in
-                        isPressed = false
-                        onTapUp()
-                    }
-            )
-            .gesture(
-                LongPressGesture(minimumDuration: 1.0)
-                    .onChanged { _ in
-                        onLongTapDown()
-                    }
-                    .onEnded { _ in
-                        onLongTapUp()
-                    }
-            )
-            .padding(4)
+extension SpecialKeys {
+    @MainActor
+    class Coordinator: NSObject {
+        var key: SpecialKeys
+        
+        init(_ key: SpecialKeys) {
+            self.key = key
+        }
+        
+        @objc func onTouchDownSel(_ sender: UIGestureRecognizer) {
+            key.backgroundColor = key.colorOnTouchDown
+            key.onTouchDown()
+        }
+        
+        @objc func onTouchUpSel(_ sender: UIGestureRecognizer) {
+            key.backgroundColor = key.colorDefault
+            key.onTouchUp()
+        }
+    }
+}
+
+extension SpecialKeys {
+    @MainActor
+    func disableColorChange() -> SpecialKeys {
+        var key = self
+        key.colorOnTouchDown = key.colorDefault
+        
+        return key
     }
 }

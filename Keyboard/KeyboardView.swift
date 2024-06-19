@@ -24,52 +24,123 @@ struct KeyboardView<NextKeyboardButton: View>: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 0) {
+                SpecialKeys(onTouchUp: {
+                    self.automata.backspace()
+                })
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(4)
+                .frame(width: 42)
                 ForEach(firstRow, id: \.self) { key in
                     KeyboardKey(character: key, automata: self.automata)
                 }
+                SpecialKeys(onTouchUp: {
+                    self.automata.backspace()
+                })
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(4)
+                .frame(width: 50)
             }
             HStack(spacing: 0) {
+                SpecialKeys(onTouchUp: {
+                    self.automata.backspace()
+                })
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(4)
+                .frame(width: 42)
                 ForEach(secondRow, id: \.self) { key in
                     KeyboardKey(character: key, automata: self.automata)
                 }
+                SpecialKeys(onTouchUp: {
+                    self.automata.backspace()
+                })
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(4)
+                .frame(width: 50)
             }
             HStack(spacing: 0) {
+                SpecialKeys(onTouchUp: {
+                    self.automata.backspace()
+                })
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(4)
+                .frame(width: 42)
                 ForEach(thirdRow, id: \.self) { key in
                     KeyboardKey(character: key, automata: self.automata)
                 }
+                SpecialKeys(onTouchUp: {
+                    self.automata.backspace()
+                })
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(4)
+                .frame(width: 50)
             }
             HStack(spacing: 0) {
+                SpecialKeys(onTouchUp: {
+                    self.automata.backspace()
+                })
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(4)
+                .frame(width: 42)
                 ForEach(fourthRow, id: \.self) { key in
                     KeyboardKey(character: key, automata: self.automata)
                 }
-                SpecialKeys(automata: automata, onTapUp: {
+                // backspace
+                SpecialKeys(onTouchUp: {
                     self.automata.backspace()
-                }, subview: {
-                    Text("⌫")
                 })
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(4)
+                .frame(width: 70)
             }
             HStack(spacing: 0) {
-                SpecialKeys(automata: automata, subview: {
-                    Text("123")
+//                SpecialKeys(automata: automata, subview: {
+//                    Text("123")
+//                })
+//                    .frame(width: 47)
+                SpecialKeys(onTouchUp: {
+                    self.automata.space()
                 })
-                    .frame(width: 47)
+                .disableColorChange()
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(4)
+                .frame(width: 50)
                 nextKeyboard
-                    .background(Color(red: 172/255, green: 177/255, blue: 185/255))
                     .cornerRadius(CORNER_RADIUS)
                     .shadow(radius: 0.4, x: 0, y: 1)
                     .padding(4)
                     .frame(width: 50)
-                SpecialKeys(automata: automata, onTapUp: {
+                SpecialKeys(onTouchUp: {
                     self.automata.space()
-                }, subview: {
-                    Text("스페이스")
                 })
-                SpecialKeys(automata: automata, onTapUp: {
-                    
-                }, subview: {
-                    Text("⏎")
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(4)
+                SpecialKeys(onTouchUp: {
                 })
-                    .frame(width: 100)
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(4)
+                .frame(width: 100)
+//                SpecialKeys(automata: automata, onTapUp: {
+//                    self.automata.space()
+//                }, subview: {
+//                    Text("스페이스")
+//                })
+//                SpecialKeys(automata: automata, onTapUp: {
+//                    
+//                }, subview: {
+//                    Text("⏎")
+//                })
+//                    .frame(width: 100)
             }
         }
     }
