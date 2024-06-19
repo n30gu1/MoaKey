@@ -14,10 +14,10 @@ struct SpecialKeys: UIViewRepresentable {
     let onTouchDown: () -> Void
     let onTouchUp: () -> Void
     
-    var colorDefault: UIColor = .secondarySystemFill
+    var colorDefault: UIColor = #colorLiteral(red: 0.669994235, green: 0.6949279904, blue: 0.7288325429, alpha: 1)
     var colorOnTouchDown: UIColor = .white
     
-    @State var backgroundColor: UIColor = .secondarySystemFill
+    @State var backgroundColor: UIColor = #colorLiteral(red: 0.669994235, green: 0.6949279904, blue: 0.7288325429, alpha: 1)
     
     init(
         target: UIInputViewController? = nil, selector: Selector? = nil,

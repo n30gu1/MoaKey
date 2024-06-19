@@ -36,7 +36,7 @@ struct KeyboardView<NextKeyboardButton: View>: View {
                     self.automata.backspace()
                 })
                 .key()
-                .frame(width: 50)
+                .frame(width: 42)
             }
             HStack(spacing: 0) {
                 SpecialKeys(onTouchUp: {
@@ -52,7 +52,7 @@ struct KeyboardView<NextKeyboardButton: View>: View {
                     self.automata.backspace()
                 })
                 .key()
-                .frame(width: 50)
+                .frame(width: 42)
             }
             HStack(spacing: 0) {
                 SpecialKeys(onTouchUp: {
@@ -67,7 +67,7 @@ struct KeyboardView<NextKeyboardButton: View>: View {
                     self.automata.backspace()
                 })
                 .key()
-                .frame(width: 50)
+                .frame(width: 42)
             }
             HStack(spacing: 0) {
                 SpecialKeys(onTouchUp: {
@@ -84,6 +84,7 @@ struct KeyboardView<NextKeyboardButton: View>: View {
                 })
                 .key()
                 .frame(width: 70)
+                .padding(.leading, 10)
             }
             HStack(spacing: 0) {
                 //                SpecialKeys(automata: automata, subview: {
