@@ -54,7 +54,7 @@ extension Automata {
                 endComposing()
             }
         } else {
-            proxy.insertText("\(UnicodeScalar(0x1100 + Automata.chosungTable[consonent]!)!)")
+            proxy.insertText(consonent)
             endComposing()
         }
     }
