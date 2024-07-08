@@ -20,6 +20,7 @@
 		B23860262C0F15AC00F84480 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B23860252C0F15AC00F84480 /* Base */; };
 		B23860342C0F15D800F84480 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23860332C0F15D800F84480 /* KeyboardViewController.swift */; };
 		B23860382C0F15D800F84480 /* Keyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B23860312C0F15D800F84480 /* Keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B27396802C3BD5C0000EF70A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B273967F2C3BD5C0000EF70A /* .gitignore */; };
 		B2768B4C2C173DCD0013FEA8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2768B4B2C173DCD0013FEA8 /* Constants.swift */; };
 		B2864E892C141E0400EFA18C /* SpecialKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2864E882C141E0400EFA18C /* SpecialKeys.swift */; };
 		B29CDF662C129B1000197FC3 /* KeyboardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CDF642C129B1000197FC3 /* KeyboardOverlay.swift */; };
@@ -70,6 +71,7 @@
 		B23860312C0F15D800F84480 /* Keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Keyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23860332C0F15D800F84480 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		B23860352C0F15D800F84480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B273967F2C3BD5C0000EF70A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B2768B4B2C173DCD0013FEA8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B2864E882C141E0400EFA18C /* SpecialKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialKeys.swift; sourceTree = "<group>"; };
 		B29CDF642C129B1000197FC3 /* KeyboardOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardOverlay.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		B238600D2C0F15AA00F84480 = {
 			isa = PBXGroup;
 			children = (
+				B273967F2C3BD5C0000EF70A /* .gitignore */,
 				B23860182C0F15AA00F84480 /* MoaKey */,
 				B23860322C0F15D800F84480 /* Keyboard */,
 				B23860172C0F15AA00F84480 /* Products */,
@@ -240,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B27396802C3BD5C0000EF70A /* .gitignore in Resources */,
 				B23860232C0F15AC00F84480 /* Assets.xcassets in Resources */,
 				B23860262C0F15AC00F84480 /* Base in Resources */,
 				B21B93B42C1077C40024E70A /* Localizable.xcstrings in Resources */,

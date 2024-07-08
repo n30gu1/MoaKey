@@ -83,9 +83,11 @@ struct KeyboardView<NextKeyboardButton: View>: View {
                     self.automata.backspace()
                 })
                 .key()
-                .frame(width: 70)
+                .frame(width: 94)
                 .padding(.leading, 10)
             }
+            
+            // MARK: Modifier Keys
             HStack(spacing: 0) {
                 //                SpecialKeys(automata: automata, subview: {
                 //                    Text("123")
