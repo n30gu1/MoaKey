@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B20109932C3680E800DE37A3 /* NumbersAndPunctationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20109922C3680E800DE37A3 /* NumbersAndPunctationView.swift */; };
 		B21B93A92C103D3C0024E70A /* Automata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B93A82C103D3C0024E70A /* Automata.swift */; };
 		B21B93AB2C1041700024E70A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B93AA2C1041700024E70A /* ContentView.swift */; };
 		B21B93AD2C1073F60024E70A /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B93AC2C1073F60024E70A /* WelcomeScreen.swift */; };
@@ -21,6 +20,8 @@
 		B23860342C0F15D800F84480 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23860332C0F15D800F84480 /* KeyboardViewController.swift */; };
 		B23860382C0F15D800F84480 /* Keyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B23860312C0F15D800F84480 /* Keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B27396802C3BD5C0000EF70A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B273967F2C3BD5C0000EF70A /* .gitignore */; };
+		B27396822C3BD67E000EF70A /* KeyboardMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27396812C3BD67E000EF70A /* KeyboardMode.swift */; };
+		B27396842C3BD83B000EF70A /* KeyboardView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27396832C3BD83B000EF70A /* KeyboardView+Extension.swift */; };
 		B2768B4C2C173DCD0013FEA8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2768B4B2C173DCD0013FEA8 /* Constants.swift */; };
 		B2864E892C141E0400EFA18C /* SpecialKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2864E882C141E0400EFA18C /* SpecialKeys.swift */; };
 		B29CDF662C129B1000197FC3 /* KeyboardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CDF642C129B1000197FC3 /* KeyboardOverlay.swift */; };
@@ -54,7 +55,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B20109922C3680E800DE37A3 /* NumbersAndPunctationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersAndPunctationView.swift; sourceTree = "<group>"; };
 		B21B93A82C103D3C0024E70A /* Automata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Automata.swift; sourceTree = "<group>"; };
 		B21B93AA2C1041700024E70A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B21B93AC2C1073F60024E70A /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
@@ -72,6 +72,8 @@
 		B23860332C0F15D800F84480 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		B23860352C0F15D800F84480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B273967F2C3BD5C0000EF70A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B27396812C3BD67E000EF70A /* KeyboardMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardMode.swift; sourceTree = "<group>"; };
+		B27396832C3BD83B000EF70A /* KeyboardView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardView+Extension.swift"; sourceTree = "<group>"; };
 		B2768B4B2C173DCD0013FEA8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B2864E882C141E0400EFA18C /* SpecialKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialKeys.swift; sourceTree = "<group>"; };
 		B29CDF642C129B1000197FC3 /* KeyboardOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardOverlay.swift; sourceTree = "<group>"; };
@@ -138,8 +140,9 @@
 			isa = PBXGroup;
 			children = (
 				B23860332C0F15D800F84480 /* KeyboardViewController.swift */,
+				B27396812C3BD67E000EF70A /* KeyboardMode.swift */,
 				B29CDF692C12C15D00197FC3 /* KeyboardView.swift */,
-				B20109922C3680E800DE37A3 /* NumbersAndPunctationView.swift */,
+				B27396832C3BD83B000EF70A /* KeyboardView+Extension.swift */,
 				B2864E882C141E0400EFA18C /* SpecialKeys.swift */,
 				B23860352C0F15D800F84480 /* Info.plist */,
 				B21B93A82C103D3C0024E70A /* Automata.swift */,
@@ -278,10 +281,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B20109932C3680E800DE37A3 /* NumbersAndPunctationView.swift in Sources */,
 				B23860342C0F15D800F84480 /* KeyboardViewController.swift in Sources */,
 				B29CDF662C129B1000197FC3 /* KeyboardOverlay.swift in Sources */,
+				B27396822C3BD67E000EF70A /* KeyboardMode.swift in Sources */,
 				B29CDF672C129B1000197FC3 /* KeyboardKey.swift in Sources */,
+				B27396842C3BD83B000EF70A /* KeyboardView+Extension.swift in Sources */,
 				B29CDF6A2C12C15D00197FC3 /* KeyboardView.swift in Sources */,
 				B2768B4C2C173DCD0013FEA8 /* Constants.swift in Sources */,
 				B21B93A92C103D3C0024E70A /* Automata.swift in Sources */,

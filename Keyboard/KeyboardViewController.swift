@@ -10,6 +10,7 @@ import UIKit
 
 class KeyboardViewController: UIInputViewController {
     private var automata: Automata!
+    private var keyboardMode: KeyboardMode = .hangul
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
