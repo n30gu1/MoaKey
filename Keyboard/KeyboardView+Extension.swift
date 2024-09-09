@@ -10,194 +10,134 @@ import SwiftUI
 extension KeyboardView {
     @ViewBuilder
     func hangulView() -> some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 3) {
             HStack(spacing: 0) {
-                SpecialKeys(onTouchUp: {
-                    self.automata.backspace()
-                })
-                .key()
-                .frame(width: 42)
                 ForEach(firstRow, id: \.self) { key in
                     KeyboardKey(character: key, automata: self.automata)
                 }
-                SpecialKeys(onTouchUp: {
-                    self.automata.backspace()
-                })
-                .key()
-                .frame(width: 42)
             }
             HStack(spacing: 0) {
-                SpecialKeys(onTouchUp: {
-                    self.automata.backspace()
-                })
-                .key()
-                .frame(width: 42)
                 ForEach(secondRow, id: \.self) { key in
                     KeyboardKey(character: key, automata: self.automata)
                 }
-                // TODO: add key repeat when long press
-                SpecialKeys(onTouchUp: {
-                    self.automata.backspace()
-                })
-                .key()
-                .frame(width: 42)
             }
             HStack(spacing: 0) {
-                SpecialKeys(onTouchUp: {
-                    self.automata.backspace()
-                })
-                .key()
-                .frame(width: 42)
                 ForEach(thirdRow, id: \.self) { key in
                     KeyboardKey(character: key, automata: self.automata)
                 }
-                SpecialKeys(onTouchUp: {
-                    self.automata.backspace()
-                })
-                .key()
-                .frame(width: 42)
             }
             HStack(spacing: 0) {
-                SpecialKeys(onTouchUp: {
-                    self.automata.backspace()
-                })
-                .key()
-                .frame(width: 42)
                 ForEach(fourthRow, id: \.self) { key in
                     KeyboardKey(character: key, automata: self.automata)
                 }
                 // backspace
                 SpecialKeys(onTouchUp: {
                     self.automata.backspace()
-                })
-                .key()
-                .frame(width: 94)
+                }, title: NSAttributedString(string: "⌫", attributes: [
+                    .font: UIFont.systemFont(ofSize: 23)
+                ]))
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(4)
+                .frame(width: 68)
                 .padding(.leading, 10)
             }
             
             // MARK: Modifier Keys
             HStack(spacing: 0) {
-                //                SpecialKeys(automata: automata, subview: {
-                //                    Text("123")
-                //                })
-                //                    .frame(width: 47)
+                SpecialKeys(onTouchDown: {
+                    self.keyboardMode = .specialCharacters
+                }, title: NSAttributedString(string: "123", attributes: [
+                    .font: UIFont.systemFont(ofSize: 16)
+                ]))
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(2.5)
+                .frame(width: 49)
                 nextKeyboard
                 SpecialKeys(onTouchUp: {
                     self.automata.space()
-                })
-                .key()
+                }, color: .white, title: NSAttributedString(string: "스페이스", attributes: [
+                    .font: UIFont.systemFont(ofSize: 16)
+                ]))
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(2.5)
                 SpecialKeys(onTouchUp: {
-                })
-                .key()
+                }, title: NSAttributedString(string: "⏎", attributes: [
+                    .font: UIFont.systemFont(ofSize: 24)
+                ]))
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(2.5)
                 .frame(width: 100)
-                //                SpecialKeys(automata: automata, onTapUp: {
-                //                    self.automata.space()
-                //                }, subview: {
-                //                    Text("스페이스")
-                //                })
-                //                SpecialKeys(automata: automata, onTapUp: {
-                //
-                //                }, subview: {
-                //                    Text("⏎")
-                //                })
-                //                    .frame(width: 100)
             }
         }
     }
     
     
     func specialCharactersView() -> some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 3) {
             HStack(spacing: 0) {
-                SpecialKeys(onTouchUp: {
-                    self.automata.backspace()
-                })
-                .key()
-                .frame(width: 42)
                 ForEach(firstRow, id: \.self) { key in
                     KeyboardKey(character: key, automata: self.automata)
                 }
-                SpecialKeys(onTouchUp: {
-                    self.automata.backspace()
-                })
-                .key()
-                .frame(width: 42)
             }
             HStack(spacing: 0) {
-                SpecialKeys(onTouchUp: {
-                    self.automata.backspace()
-                })
-                .key()
-                .frame(width: 42)
                 ForEach(secondRow, id: \.self) { key in
                     KeyboardKey(character: key, automata: self.automata)
                 }
-                // TODO: add key repeat when long press
-                SpecialKeys(onTouchUp: {
-                    self.automata.backspace()
-                })
-                .key()
-                .frame(width: 42)
             }
             HStack(spacing: 0) {
-                SpecialKeys(onTouchUp: {
-                    self.automata.backspace()
-                })
-                .key()
-                .frame(width: 42)
                 ForEach(thirdRow, id: \.self) { key in
                     KeyboardKey(character: key, automata: self.automata)
                 }
-                SpecialKeys(onTouchUp: {
-                    self.automata.backspace()
-                })
-                .key()
-                .frame(width: 42)
             }
             HStack(spacing: 0) {
-                SpecialKeys(onTouchUp: {
-                    self.automata.backspace()
-                })
-                .key()
-                .frame(width: 42)
                 ForEach(fourthRow, id: \.self) { key in
                     KeyboardKey(character: key, automata: self.automata)
                 }
                 // backspace
                 SpecialKeys(onTouchUp: {
                     self.automata.backspace()
-                })
-                .key()
-                .frame(width: 94)
+                }, title: NSAttributedString(string: "⌫", attributes: [
+                    .font: UIFont.systemFont(ofSize: 23)
+                ]))
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(4)
+                .frame(width: 68)
                 .padding(.leading, 10)
             }
             
             // MARK: Modifier Keys
             HStack(spacing: 0) {
-                //                SpecialKeys(automata: automata, subview: {
-                //                    Text("123")
-                //                })
-                //                    .frame(width: 47)
+                SpecialKeys(onTouchDown: {
+                    self.keyboardMode = .hangul
+                }, title: NSAttributedString(string: "한글", attributes: [
+                    .font: UIFont.systemFont(ofSize: 16)
+                ]))
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(2.5)
+                .frame(width: 49)
                 nextKeyboard
                 SpecialKeys(onTouchUp: {
                     self.automata.space()
-                })
-                .key()
+                }, color: .white, title: NSAttributedString(string: "스페이스", attributes: [
+                    .font: UIFont.systemFont(ofSize: 16)
+                ]))
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(2.5)
                 SpecialKeys(onTouchUp: {
-                })
-                .key()
+                }, title: NSAttributedString(string: "⏎", attributes: [
+                    .font: UIFont.systemFont(ofSize: 24)
+                ]))
+                .cornerRadius(CORNER_RADIUS)
+                .shadow(radius: 0.4, x: 0, y: 1)
+                .padding(2.5)
                 .frame(width: 100)
-                //                SpecialKeys(automata: automata, onTapUp: {
-                //                    self.automata.space()
-                //                }, subview: {
-                //                    Text("스페이스")
-                //                })
-                //                SpecialKeys(automata: automata, onTapUp: {
-                //
-                //                }, subview: {
-                //                    Text("⏎")
-                //                })
-                //                    .frame(width: 100)
             }
         }
     }

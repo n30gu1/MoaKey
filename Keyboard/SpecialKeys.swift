@@ -19,15 +19,22 @@ struct SpecialKeys: UIViewRepresentable {
     
     @State var backgroundColor: UIColor = #colorLiteral(red: 0.669994235, green: 0.6949279904, blue: 0.7288325429, alpha: 1)
     
+    let title: NSAttributedString
+    
     init(
         target: UIInputViewController? = nil, selector: Selector? = nil,
         onTouchDown: @escaping () -> Void = {},
-        onTouchUp: @escaping () -> Void = {}
+        onTouchUp: @escaping () -> Void = {},
+        color: Color = Color(uiColor: #colorLiteral(red: 0.669994235, green: 0.6949279904, blue: 0.7288325429, alpha: 1)),
+        title: NSAttributedString
     ) {
         self.target = target
         self.selector = selector
         self.onTouchDown = onTouchDown
         self.onTouchUp = onTouchUp
+        self.colorDefault = UIColor(color)
+        self.backgroundColor = UIColor(color)
+        self.title = title
     }
     
     func makeUIView(context: Context) -> UIButton {
@@ -45,6 +52,8 @@ struct SpecialKeys: UIViewRepresentable {
         }
         
         uiView.backgroundColor = self.backgroundColor
+        
+        uiView.setAttributedTitle(title, for: .normal)
     }
     
     func makeCoordinator() -> Coordinator {

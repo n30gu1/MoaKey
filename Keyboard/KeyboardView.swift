@@ -27,6 +27,8 @@ struct KeyboardView<NextKeyboardButton: View>: View {
         switch keyboardMode {
         case .hangul:
             hangulView()
+                .padding(.horizontal, 0.8)
+                .padding(.bottom, 2)
         case .specialCharacters:
             specialCharactersView()
         }
@@ -42,7 +44,7 @@ struct Key: ViewModifier {
         content
             .cornerRadius(CORNER_RADIUS)
             .shadow(radius: 0.4, x: 0, y: 1)
-            .padding(4)
+            .padding(3)
     }
 }
 

@@ -7,4 +7,5 @@
 
 import UIKit
 
-let CORNER_RADIUS: CGFloat = 5.0
+let CORNER_RADIUS: CGFloat = 4.8
+

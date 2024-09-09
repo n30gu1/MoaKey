@@ -28,6 +28,7 @@
 		B29CDF672C129B1000197FC3 /* KeyboardKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CDF652C129B1000197FC3 /* KeyboardKey.swift */; };
 		B29CDF682C129C2300197FC3 /* KeyboardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CDF642C129B1000197FC3 /* KeyboardOverlay.swift */; };
 		B29CDF6A2C12C15D00197FC3 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CDF692C12C15D00197FC3 /* KeyboardView.swift */; };
+		B2BC6E6B2C8F53C300CBAB75 /* SymbolKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BC6E6A2C8F53C300CBAB75 /* SymbolKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		B29CDF642C129B1000197FC3 /* KeyboardOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardOverlay.swift; sourceTree = "<group>"; };
 		B29CDF652C129B1000197FC3 /* KeyboardKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardKey.swift; sourceTree = "<group>"; };
 		B29CDF692C12C15D00197FC3 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		B2BC6E6A2C8F53C300CBAB75 /* SymbolKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				B29CDF652C129B1000197FC3 /* KeyboardKey.swift */,
 				B29CDF642C129B1000197FC3 /* KeyboardOverlay.swift */,
 				B2768B4B2C173DCD0013FEA8 /* Constants.swift */,
+				B2BC6E6A2C8F53C300CBAB75 /* SymbolKey.swift */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				B23860342C0F15D800F84480 /* KeyboardViewController.swift in Sources */,
 				B29CDF662C129B1000197FC3 /* KeyboardOverlay.swift in Sources */,
 				B27396822C3BD67E000EF70A /* KeyboardMode.swift in Sources */,
+				B2BC6E6B2C8F53C300CBAB75 /* SymbolKey.swift in Sources */,
 				B29CDF672C129B1000197FC3 /* KeyboardKey.swift in Sources */,
 				B27396842C3BD83B000EF70A /* KeyboardView+Extension.swift in Sources */,
 				B29CDF6A2C12C15D00197FC3 /* KeyboardView.swift in Sources */,

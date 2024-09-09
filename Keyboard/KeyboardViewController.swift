@@ -60,16 +60,19 @@ extension KeyboardViewController {
         
         let hosting = UIHostingController(rootView: KeyboardView(automata: automata) {
             HStack(spacing: 0) {
-                SpecialKeys(onTouchUp: {
-                    self.automata.space()
-                })
-                .disableColorChange()
-                .key()
-                .frame(width: self.needsInputModeSwitchKey ? 50 : 100)
+//                SpecialKeys(onTouchUp: {
+//                    self.automata.space()
+//                }, color: .white, title: NSAttributedString(string: "스페이스", attributes: [
+//                    .font: UIFont.systemFont(ofSize: 16)
+//                ]))
+//                .disableColorChange()
+//                .key()
+//                .frame(width: self.needsInputModeSwitchKey ? 50 : 100)
                 if self.needsInputModeSwitchKey {
                     SpecialKeys(
                         target: self,
-                        selector: #selector(self.handleInputModeList(from:with:))
+                        selector: #selector(self.handleInputModeList(from:with:)),
+                        title: NSAttributedString(string: "globe", attributes: [:])
                     )
                     .key()
                     .frame(width: 50)

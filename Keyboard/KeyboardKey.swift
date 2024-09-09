@@ -26,6 +26,7 @@ struct KeyboardKey: View {
     
     var body: some View {
         Text(isPressed ? "" : character)
+            .font(.title3)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.white) // TODO: Change color to system
             .cornerRadius(CORNER_RADIUS)
