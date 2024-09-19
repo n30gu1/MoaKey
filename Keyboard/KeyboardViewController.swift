@@ -59,31 +59,29 @@ extension KeyboardViewController {
         self.automata = Automata(proxy: proxy)
         
         let hosting = UIHostingController(rootView: KeyboardView(automata: automata) {
-            HStack(spacing: 0) {
-//                SpecialKeys(onTouchUp: {
-//                    self.automata.space()
-//                }, color: .white, title: NSAttributedString(string: "스페이스", attributes: [
-//                    .font: UIFont.systemFont(ofSize: 16)
-//                ]))
-//                .disableColorChange()
-//                .key()
-//                .frame(width: self.needsInputModeSwitchKey ? 50 : 100)
-                if self.needsInputModeSwitchKey {
-                    SpecialKeys(
-                        target: self,
-                        selector: #selector(self.handleInputModeList(from:with:)),
-                        title: NSAttributedString(string: "globe", attributes: [:])
-                    )
-                    .key()
-                    .frame(width: 50)
-                }
+            if self.needsInputModeSwitchKey {
+                SpecialKeys(
+                    target: self,
+                    selector: #selector(self.handleInputModeList(from:with:)),
+                    title: NSAttributedString(string: "globe", attributes: [:])
+                )
+                .cornerRadius(4)
+                .shadow(radius: 0.4, x: 0, y: 1)
+            } else {
+                SpecialKeys(
+                    target: self, title: NSAttributedString(string: "emoji", attributes: [:])
+                )
+                .cornerRadius(4)
+                .shadow(radius: 0.4, x: 0, y: 1)
             }
         })
         hosting.view.backgroundColor = .clear
         self.view.addSubview(hosting.view)
         hosting.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        print("DEBUG: NATIVE BOUNDS: \(String(describing: UIScreen.main.bounds.height))")
         NSLayoutConstraint.activate([
-            hosting.view.heightAnchor.constraint(equalToConstant: 250),
+            hosting.view.heightAnchor.constraint(equalToConstant: Calculator.getKeyboardHeight()),
             hosting.view.topAnchor.constraint(equalTo: self.view.topAnchor),
             hosting.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             hosting.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),

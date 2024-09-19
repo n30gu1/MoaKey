@@ -91,7 +91,7 @@ struct KeyboardKey: View {
                         .offset(y: -36)
                 }
             }
-            .padding(4)
+//            .padding(3)
             .task {
                 composedCharacter = character
             }

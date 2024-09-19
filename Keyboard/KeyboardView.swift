@@ -44,7 +44,7 @@ struct Key: ViewModifier {
         content
             .cornerRadius(CORNER_RADIUS)
             .shadow(radius: 0.4, x: 0, y: 1)
-            .padding(3)
+//            .padding(3)
     }
 }
 
