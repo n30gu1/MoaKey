@@ -7,6 +7,25 @@
 
 import UIKit
 
+struct KeyboardMetrics {
+    let keyboardHeight: CGFloat
+    let keySpacing: CGFloat
+    let rowSpacing: CGFloat
+    let outerPadding: CGFloat
+}
+
+private let metricsByScreenHeight: [CGFloat: KeyboardMetrics] = [
+    667.0: KeyboardMetrics(keyboardHeight: 291, keySpacing: 6, rowSpacing: 6, outerPadding: 3), // iPhone SE (2nd, 3rd gen)
+    812.0: KeyboardMetrics(keyboardHeight: 292, keySpacing: 5, rowSpacing: 5, outerPadding: 3), // iPhone XS, 11 Pro, mini
+    844.0: KeyboardMetrics(keyboardHeight: 292, keySpacing: 5, rowSpacing: 5, outerPadding: 3), // iPhone 12, 12 Pro ~ 14
+    852.0: KeyboardMetrics(keyboardHeight: 292, keySpacing: 5, rowSpacing: 5, outerPadding: 3), // iPhone 14 Pro ~ 16
+    874.0: KeyboardMetrics(keyboardHeight: 304, keySpacing: 6, rowSpacing: 6, outerPadding: 3), // iPhone 16 Pro
+    896.0: KeyboardMetrics(keyboardHeight: 304, keySpacing: 6, rowSpacing: 6, outerPadding: 3), // iPhone XR, XS Max, 11 Pro Max
+    926.0: KeyboardMetrics(keyboardHeight: 304, keySpacing: 6, rowSpacing: 6, outerPadding: 3), // iPhone 12 Pro Max ~ 14 Plus
+    932.0: KeyboardMetrics(keyboardHeight: 304, keySpacing: 6, rowSpacing: 6, outerPadding: 3), // iPhone 15 Plus, 15 Pro Max, 16 Plus
+    956.0: KeyboardMetrics(keyboardHeight: 304, keySpacing: 6, rowSpacing: 6, outerPadding: 4), // iPhone 16 Pro Max
+]
+
 let CORNER_RADIUS: CGFloat = 4.8
 
 class Calculator {
@@ -44,110 +63,30 @@ class Calculator {
     }
     
     static func portraitHeightLookup(_ height: CGFloat) -> CGFloat {
-        switch height {
-        case 667.0: // iPhone SE (2nd, 3rd generation)
-            return 260
-//        case 780.0: // idk what device uses this size but there is
-//            return 300
-        case 812.0: // iPhone XS, iPhone 11 Pro, iPhone mini
-            return 261
-        case 844.0: // iPhone 12, iPhone 12 Pro ~ iPhone 14
-            return 261
-        case 852.0: // iPhone 14 Pro ~ iPhone 16
-            return 261
-        case 874.0: // iPhone 16 Pro
-            return 261
-        case 896.0: // iPhone XR, iPhone XS Max, iPhone 11, iPhone 11 Pro Max
-            return 271
-        case 926.0: // iPhone 12 Pro Max ~ iPhone 14 Plus
-            return 271
-        case 932.0: // iPhone 15 Plus, iPhone 15 Pro Max, iPhone 16 Plus
-            return 271
-        case 956.0: // iPhone 16 Pro Max
-            return 271
-        default:    // Fallback
-            return 261
+        if let metric = metricsByScreenHeight[height] {
+            return metric.keyboardHeight
         }
+        return 292
     }
     
     static func getOuterPadding() -> CGFloat {
-        switch self.getHeight() {
-        case 667.0: // iPhone SE (2nd, 3rd generation)
-            return 3
-//        case 780.0: // idk what device uses this size but there is
-//            return 300
-        case 812.0: // iPhone XS, iPhone 11 Pro, iPhone mini
-            return 3
-        case 844.0: // iPhone 12, iPhone 12 Pro ~ iPhone 14
-            return 3
-        case 852.0: // iPhone 14 Pro ~ iPhone 16
-            return 3
-        case 874.0: // iPhone 16 Pro
-            return 2.6
-        case 896.0: // iPhone XR, iPhone XS Max, iPhone 11, iPhone 11 Pro Max
-            return 3
-        case 926.0: // iPhone 12 Pro Max ~ iPhone 14 Plus
-            return 3
-        case 932.0: // iPhone 15 Plus, iPhone 15 Pro Max, iPhone 16 Plus
-            return 3
-        case 956.0: // iPhone 16 Pro Max
-            return 3.6
-        default:    // Fallback
-            return 3
+        if let metric = metricsByScreenHeight[self.getHeight()] {
+            return metric.outerPadding
         }
+        return 3
     }
     
     static func getKeySpacing() -> CGFloat {
-        switch self.getHeight() {
-        case 667.0: // iPhone SE (2nd, 3rd generation)
-            return 6
-//        case 780.0: // idk what device uses this size but there is
-//            return 300
-        case 812.0: // iPhone XS, iPhone 11 Pro, iPhone mini
-            return 6
-        case 844.0: // iPhone 12, iPhone 12 Pro ~ iPhone 14
-            return 6
-        case 852.0: // iPhone 14 Pro ~ iPhone 16
-            return 6
-        case 874.0: // iPhone 16 Pro
-            return 7
-        case 896.0: // iPhone XR, iPhone XS Max, iPhone 11, iPhone 11 Pro Max
-            return 6
-        case 926.0: // iPhone 12 Pro Max ~ iPhone 14 Plus
-            return 6
-        case 932.0: // iPhone 15 Plus, iPhone 15 Pro Max, iPhone 16 Plus
-            return 6
-        case 956.0: // iPhone 16 Pro Max
-            return 6
-        default:    // Fallback
-            return 6
+        if let metric = metricsByScreenHeight[self.getHeight()] {
+            return metric.keySpacing
         }
+        return 6
     }
     
     static func getRowSpacing() -> CGFloat {
-        switch self.getHeight() {
-        case 667.0: // iPhone SE (2nd, 3rd generation)
-            return 6
-//        case 780.0: // idk what device uses this size but there is
-//            return 300
-        case 812.0: // iPhone XS, iPhone 11 Pro, iPhone mini
-            return 6
-        case 844.0: // iPhone 12, iPhone 12 Pro ~ iPhone 14
-            return 6
-        case 852.0: // iPhone 14 Pro ~ iPhone 16
-            return 6
-        case 874.0: // iPhone 16 Pro
-            return 12
-        case 896.0: // iPhone XR, iPhone XS Max, iPhone 11, iPhone 11 Pro Max
-            return 6
-        case 926.0: // iPhone 12 Pro Max ~ iPhone 14 Plus
-            return 6
-        case 932.0: // iPhone 15 Plus, iPhone 15 Pro Max, iPhone 16 Plus
-            return 6
-        case 956.0: // iPhone 16 Pro Max
-            return 6
-        default:    // Fallback
-            return 6
+        if let metric = metricsByScreenHeight[self.getHeight()] {
+            return metric.rowSpacing
         }
+        return 6
     }
 }
