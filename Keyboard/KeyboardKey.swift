@@ -14,35 +14,43 @@ enum Direction {
 struct KeyboardKey: View {
     let character: String
     @State private var isPressed = false
-    
+
     @State private var currentDirection: Direction = .none
-    
+
     @State private var directions: [Direction] = []
-    
+
     @State private var composedCharacter = ""
     @State private var currentJungsung: Int? = nil
-    
+
     @ObservedObject var automata: Automata
-    
+
     var body: some View {
         Text(isPressed ? "" : character)
             .font(.title3)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.white) // TODO: Change color to system
-            .cornerRadius(CORNER_RADIUS)
-            .shadow(radius: 0.4, x: 0, y: 1)
+            .background(
+                isPressed
+                    ? Color("KeyColorPressed") : Color("KeyColor")
+            )  // TODO: Change color to system
+            .clipShape(RoundedRectangle(cornerRadius: CORNER_RADIUS, style: .continuous))
             .gesture(
                 DragGesture(minimumDistance: 0)
                     .onChanged { g in
                         isPressed = true
-                        
+
                         if g.translation.width > 20, g.translation.height > 20 {
                             currentDirection = .downRight
-                        } else if g.translation.width > 20, g.translation.height < -20 {
+                        } else if g.translation.width > 20,
+                            g.translation.height < -20
+                        {
                             currentDirection = .upRight
-                        } else if g.translation.width < -20, g.translation.height > 20 {
+                        } else if g.translation.width < -20,
+                            g.translation.height > 20
+                        {
                             currentDirection = .downLeft
-                        } else if g.translation.width < -20, g.translation.height < -20 {
+                        } else if g.translation.width < -20,
+                            g.translation.height < -20
+                        {
                             currentDirection = .upLeft
                         } else if g.translation.width > 30 {
                             currentDirection = .right
@@ -59,9 +67,12 @@ struct KeyboardKey: View {
                     .onEnded { _ in
                         isPressed = false
                         currentDirection = .none
-                        
-                        automata.input(consonent: character, syllable: currentJungsung)
-                        
+
+                        automata.input(
+                            consonent: character,
+                            syllable: currentJungsung
+                        )
+
                         directions = []
                         composedCharacter = character
                         currentJungsung = nil
@@ -73,12 +84,14 @@ struct KeyboardKey: View {
                 } else {
                     directions.append($0)
                 }
-                
+
                 let jungCode: Int? = jungsungCodeByDirection()
-                
+
                 if let jungCode {
                     if jungCode != 100 {
-                        let composedCode = 0xAC00 + (Automata.chosungTable[character]! * 588) + (jungCode * 28)
+                        let composedCode =
+                            0xAC00 + (Automata.chosungTable[character]! * 588)
+                            + (jungCode * 28)
                         let unicode = UnicodeScalar(composedCode)
                         composedCharacter = "\(unicode!)"
                         currentJungsung = jungsungCodeByDirection()
@@ -87,16 +100,17 @@ struct KeyboardKey: View {
             }
             .background {
                 if isPressed {
-                    pressedView()
-                        .offset(y: -36)
+//                    pressedView()
+//                        .offset(y: -36)
+                    Text(composedCharacter)
                 }
             }
-//            .padding(3)
+            //            .padding(3)
             .task {
                 composedCharacter = character
             }
     }
-    
+
     func jungsungCodeByDirection() -> Int? {
         switch directions {
         case [.up]:
@@ -144,13 +158,13 @@ struct KeyboardKey: View {
         case []:
             return nil
         default:
-            return 100 // ignore
+            return 100  // ignore
         }
     }
-    
-    func pressedView() -> some View {
-        KeyboardOverlay(character: composedCharacter)
-    }
+
+    //    func pressedView() -> some View {
+    //        KeyboardOverlay(character: composedCharacter)
+    //    }
 }
 
 // #Preview {

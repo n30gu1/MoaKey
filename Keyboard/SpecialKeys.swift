@@ -14,10 +14,10 @@ struct SpecialKeys: UIViewRepresentable {
     let onTouchDown: () -> Void
     let onTouchUp: () -> Void
     
-    var colorDefault: UIColor = #colorLiteral(red: 0.669994235, green: 0.6949279904, blue: 0.7288325429, alpha: 1)
-    var colorOnTouchDown: UIColor = .white
+    var colorDefault: UIColor = UIColor(named: "KeyColor") ?? .white
+    var colorOnTouchDown: UIColor = UIColor(named: "KeyColorPressed") ?? .white
     
-    @State var backgroundColor: UIColor = #colorLiteral(red: 0.669994235, green: 0.6949279904, blue: 0.7288325429, alpha: 1)
+    @State var backgroundColor: UIColor = UIColor(named: "KeyColor") ?? .white
     
     let title: NSAttributedString
     
@@ -25,7 +25,7 @@ struct SpecialKeys: UIViewRepresentable {
         target: UIInputViewController? = nil, selector: Selector? = nil,
         onTouchDown: @escaping () -> Void = {},
         onTouchUp: @escaping () -> Void = {},
-        color: Color = Color(uiColor: #colorLiteral(red: 0.669994235, green: 0.6949279904, blue: 0.7288325429, alpha: 1)),
+        color: Color = Color("KeyColor"),
         title: NSAttributedString
     ) {
         self.target = target

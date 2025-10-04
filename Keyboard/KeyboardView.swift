@@ -27,7 +27,7 @@ struct KeyboardView<NextKeyboardButton: View>: View {
         switch keyboardMode {
         case .hangul:
             hangulView()
-                .padding(.horizontal, 0.8)
+                .padding(.horizontal, 0.6)
                 .padding(.bottom, 2)
         case .specialCharacters:
             specialCharactersView()

@@ -65,21 +65,20 @@ extension KeyboardViewController {
                     selector: #selector(self.handleInputModeList(from:with:)),
                     title: NSAttributedString(string: "globe", attributes: [:])
                 )
-                .cornerRadius(4)
-                .shadow(radius: 0.4, x: 0, y: 1)
+//                .cornerRadius(4)
+//                .shadow(radius: 0.4, x: 0, y: 1)
             } else {
                 SpecialKeys(
                     target: self, title: NSAttributedString(string: "emoji", attributes: [:])
                 )
-                .cornerRadius(4)
-                .shadow(radius: 0.4, x: 0, y: 1)
+//                .cornerRadius(4)
+//                .shadow(radius: 0.4, x: 0, y: 1)
             }
         })
         hosting.view.backgroundColor = .clear
         self.view.addSubview(hosting.view)
         hosting.view.translatesAutoresizingMaskIntoConstraints = false
         
-        print("DEBUG: NATIVE BOUNDS: \(String(describing: UIScreen.main.bounds.height))")
         NSLayoutConstraint.activate([
             hosting.view.heightAnchor.constraint(equalToConstant: Calculator.getKeyboardHeight()),
             hosting.view.topAnchor.constraint(equalTo: self.view.topAnchor),

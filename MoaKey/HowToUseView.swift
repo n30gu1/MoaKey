@@ -14,9 +14,23 @@ struct HowToUseView: View {
                 Text("시작해 볼까요?")
                     .font(.title)
                     .fontWeight(.bold)
+                    .padding(.top, 64)
                 Text("모아키를 써보신 적이 있나요?")
                     .font(.title3)
                     .fontWeight(.medium)
+                Spacer()
+                Button {} label: {
+                    Text("네")
+                        .padding(.vertical, 8)
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.glassProminent)
+                Button {} label: {
+                    Text("아니요")
+                        .padding(.vertical, 8)
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.glass)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()

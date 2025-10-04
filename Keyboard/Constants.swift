@@ -7,7 +7,7 @@
 
 import UIKit
 
-let CORNER_RADIUS: CGFloat = 4.8
+let CORNER_RADIUS: CGFloat = 8
 
 class Calculator {
     /**

@@ -30,9 +30,10 @@ struct WelcomeScreen: View {
                         .frame(maxWidth: .infinity)
                         .background(.accent)
                         .cornerRadius(16.0)
-                        .padding()
                 }
+                .buttonStyle(.glassProminent)
                 .offset(y: buttonOffset)
+                .padding(.horizontal)
             }
         }
         .opacity(opacity)

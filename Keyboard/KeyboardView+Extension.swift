@@ -53,24 +53,24 @@ extension KeyboardView {
                         }, title: NSAttributedString(string: "123", attributes: [
                             .font: UIFont.systemFont(ofSize: 16)
                         ]))
-                        .cornerRadius(4)
-                        .shadow(radius: 0.2, x: 0, y: 1)
+//                        .cornerRadius(4)
+//                        .shadow(radius: 0.2, x: 0, y: 1)
                         nextKeyboard
                     }
                     .frame(width: geometry.size.width * 0.112)
                     SpecialKeys(onTouchUp: {
                         self.automata.space()
-                    }, color: .white, title: NSAttributedString(string: "스페이스", attributes: [
+                    }, title: NSAttributedString(string: "스페이스", attributes: [
                         .font: UIFont.systemFont(ofSize: 16)
                     ]))
-                    .cornerRadius(4)
-                    .shadow(radius: 0.2, x: 0, y: 1)
+//                    .cornerRadius(4)
+//                    .shadow(radius: 0.2, x: 0, y: 1)
                     SpecialKeys(onTouchUp: {
                     }, title: NSAttributedString(string: "⏎", attributes: [
                         .font: UIFont.systemFont(ofSize: 24)
                     ]))
-                    .cornerRadius(4)
-                    .shadow(radius: 0.2, x: 0, y: 1)
+//                    .cornerRadius(4)
+//                    .shadow(radius: 0.2, x: 0, y: 1)
                     .frame(width: geometry.size.width * 0.235)
                 }
             }
@@ -132,7 +132,7 @@ extension KeyboardView {
                     .frame(width: geometry.size.width * 0.112)
                     SpecialKeys(onTouchUp: {
                         self.automata.space()
-                    }, color: .white, title: NSAttributedString(string: "스페이스", attributes: [
+                    }, title: NSAttributedString(string: "스페이스", attributes: [
                         .font: UIFont.systemFont(ofSize: 16)
                     ]))
                     .cornerRadius(4)
