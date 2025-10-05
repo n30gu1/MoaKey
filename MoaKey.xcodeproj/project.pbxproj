@@ -30,6 +30,7 @@
 		B29CDF6A2C12C15D00197FC3 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CDF692C12C15D00197FC3 /* KeyboardView.swift */; };
 		B2BC6E6B2C8F53C300CBAB75 /* SymbolKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BC6E6A2C8F53C300CBAB75 /* SymbolKey.swift */; };
 		B2EECCCD2E911E080069AF44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23860222C0F15AC00F84480 /* Assets.xcassets */; };
+		B2EECCD32E9249F00069AF44 /* MoaKey.icon in Resources */ = {isa = PBXBuildFile; fileRef = B2EECCD22E9249F00069AF44 /* MoaKey.icon */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		B29CDF652C129B1000197FC3 /* KeyboardKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardKey.swift; sourceTree = "<group>"; };
 		B29CDF692C12C15D00197FC3 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		B2BC6E6A2C8F53C300CBAB75 /* SymbolKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolKey.swift; sourceTree = "<group>"; };
+		B2EECCD22E9249F00069AF44 /* MoaKey.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = MoaKey.icon; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				B23860222C0F15AC00F84480 /* Assets.xcassets */,
 				B23860242C0F15AC00F84480 /* LaunchScreen.storyboard */,
 				B23860272C0F15AC00F84480 /* Info.plist */,
+				B2EECCD22E9249F00069AF44 /* MoaKey.icon */,
 			);
 			path = MoaKey;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			files = (
 				B27396802C3BD5C0000EF70A /* .gitignore in Resources */,
 				B23860232C0F15AC00F84480 /* Assets.xcassets in Resources */,
+				B2EECCD32E9249F00069AF44 /* MoaKey.icon in Resources */,
 				B23860262C0F15AC00F84480 /* Base in Resources */,
 				B21B93B42C1077C40024E70A /* Localizable.xcstrings in Resources */,
 			);
@@ -383,7 +387,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -440,7 +444,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -448,8 +452,9 @@
 		B238602B2C0F15AC00F84480 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MoaKey;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 98882K9P37;
@@ -481,8 +486,9 @@
 		B238602C2C0F15AC00F84480 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MoaKey;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 98882K9P37;

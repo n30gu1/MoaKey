@@ -59,21 +59,13 @@ extension KeyboardViewController {
         self.automata = Automata(proxy: proxy)
         
         let hosting = UIHostingController(rootView: KeyboardView(automata: automata) {
-            if self.needsInputModeSwitchKey {
-                SpecialKeys(
-                    target: self,
-                    selector: #selector(self.handleInputModeList(from:with:)),
-                    title: NSAttributedString(string: "globe", attributes: [:])
-                )
+            SpecialKeys(
+                target: self,
+                selector: #selector(self.handleInputModeList(from:with:)),
+                title: NSAttributedString(string: "globe", attributes: [:])
+            )
 //                .cornerRadius(4)
 //                .shadow(radius: 0.4, x: 0, y: 1)
-            } else {
-                SpecialKeys(
-                    target: self, title: NSAttributedString(string: "emoji", attributes: [:])
-                )
-//                .cornerRadius(4)
-//                .shadow(radius: 0.4, x: 0, y: 1)
-            }
         })
         hosting.view.backgroundColor = .clear
         self.view.addSubview(hosting.view)

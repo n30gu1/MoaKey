@@ -35,10 +35,6 @@ struct KeyboardView<NextKeyboardButton: View>: View {
     }
 }
 
-// #Preview {
-//    KeyboardView()
-// }
-
 struct Key: ViewModifier {
     func body(content: Content) -> some View {
         content
